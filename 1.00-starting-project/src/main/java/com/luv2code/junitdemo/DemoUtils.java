@@ -56,7 +56,7 @@ public class DemoUtils {
 
     public void checkTimeout() throws InterruptedException {
         System.out.println("I am going to sleep");
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         System.out.println("Sleeping over");
     }
 
