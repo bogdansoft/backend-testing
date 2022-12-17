@@ -1,4 +1,4 @@
-package com.luv2code.component.dao;
+package com.luv2code.test.dao;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

@@ -1,7 +1,8 @@
 package com.luv2code.test;
 
-import com.luv2code.test.models.CollegeStudent;
-import com.luv2code.test.models.StudentGrades;
+import com.luv2code.component.MvcTestingExampleApplication;
+import com.luv2code.component.models.CollegeStudent;
+import com.luv2code.component.models.StudentGrades;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,10 +15,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(classes= MvcTestingExampleApplication.class)
-public class ApplicationExampleTest {
-
+@SpringBootTest(classes = MvcTestingExampleApplication.class)
+class MvcTestingExampleApplicationTest {
     private static int count = 0;
 
     @Value("${info.app.name}")
@@ -42,8 +43,8 @@ public class ApplicationExampleTest {
     ApplicationContext context;
 
     @BeforeEach
-    public void beforeEach() {
-        count = count + 1;
+    void setCount() {
+        count++;
         System.out.println("Testing: " + appInfo + " which is " + appDescription +
                 "  Version: " + appVersion + ". Execution of test method " + count);
         student.setFirstname("Eric");
@@ -107,20 +108,10 @@ public class ApplicationExampleTest {
     @Test
     public void findGradePointAverage() {
         assertAll("Testing all assertEquals",
-                ()-> assertEquals(353.25, studentGrades.addGradeResultsForSingleClass(
+                () -> assertEquals(353.25, studentGrades.addGradeResultsForSingleClass(
                         student.getStudentGrades().getMathGradeResults())),
-                ()-> assertEquals(88.31, studentGrades.findGradePointAverage(
+                () -> assertEquals(88.31, studentGrades.findGradePointAverage(
                         student.getStudentGrades().getMathGradeResults()))
         );
     }
 }
-
-
-
-
-
-
-
-
-
-
